@@ -3,6 +3,8 @@
 <link rel="import" href="../../bower_components/vaadin-upload/vaadin-upload.html">
 <link rel="import" href="../../bower_components/iron-icons/image-icons.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
 <dom-module id="vaadin-ie-app">
     <template>
@@ -10,15 +12,29 @@
             :host {
                 display: block;
             }
+
+            .container {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .flexchild {
+                @apply --flexchild-wrapping-base;
+                @apply --layout-flex;
+            }
         </style>
         <h2>Hello [[prop1]]!</h2>
-        <vaadin-upload style="border: solid;" id="upload">
-            <paper-icon-button slot="add-button" icon="image:camera-alt"></paper-icon-button>
-            <!-- We do not want a file list. Upload indication should go automatically to the message list -->
-            <span slot="file-list"></span>
-            <span slot="drop-label"></span>
-            <span slot="drop-label-icon"></span>
-        </vaadin-upload>
+        <div class="container">
+            <vaadin-upload style="border: solid;" id="upload">
+                <paper-icon-button slot="add-button" icon="image:camera-alt"></paper-icon-button>
+                <!-- We do not want a file list. Upload indication should go automatically to the message list -->
+                <span slot="file-list"></span>
+                <span slot="drop-label"></span>
+                <span slot="drop-label-icon"></span>
+            </vaadin-upload>
+            <div class="flexchild"></div>
+            <div style="width: 500px; border: solid; color: red;"></div>
+        </div>
 
     </template>
 
