@@ -1,0 +1,44 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/vaadin-upload/vaadin-upload.html">
+<link rel="import" href="../../bower_components/iron-icons/image-icons.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+
+<dom-module id="vaadin-ie-app">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <h2>Hello [[prop1]]!</h2>
+        <vaadin-upload style="border: solid;" id="upload">
+            <paper-icon-button slot="add-button" icon="image:camera-alt"></paper-icon-button>
+            <!-- We do not want a file list. Upload indication should go automatically to the message list -->
+            <span slot="file-list"></span>
+            <span slot="drop-label"></span>
+            <span slot="drop-label-icon"></span>
+        </vaadin-upload>
+
+    </template>
+
+    <script>
+        /**
+         * @customElement
+         * @polymer
+         */
+        class VaadinIeApp extends Polymer.Element {
+            static get is() { return 'vaadin-ie-app'; }
+            static get properties() {
+                return {
+                    prop1: {
+                        type: String,
+                        value: 'vaadin-ie-app'
+                    }
+                };
+            }
+        }
+
+        window.customElements.define(VaadinIeApp.is, VaadinIeApp);
+    </script>
+</dom-module>
